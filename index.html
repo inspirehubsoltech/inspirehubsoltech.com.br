@@ -4,191 +4,459 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Inspire Hub Soltech | Soluções em Gestão e Tecnologia</title>
+  <title>Inspire Hub Soltech | Gestão, Tecnologia e Automação</title>
 
-  <meta name="description" content="Inspire Hub Soltech - soluções em gestão, tecnologia, automação e desenvolvimento de sistemas para empresas.">
+  <meta name="description" content="A Inspire Hub Soltech desenvolve sistemas, automações, integrações e soluções tecnológicas para modernizar a gestão das empresas.">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
+    :root{
+      --azul:#123D8C;
+      --azul2:#1E63E9;
+      --verde:#12A594;
+      --verde-claro:#EAFBF7;
+      --fundo:#F6F8FC;
+      --texto:#101828;
+      --cinza:#667085;
+      --borda:#E4E7EC;
+      --branco:#FFFFFF;
     }
 
-    body {
-      background: #f6f8fc;
-      color: #1d2939;
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
     }
 
-    header {
-      background: #ffffff;
-      padding: 22px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #e4e7ec;
+    html{
+      scroll-behavior:smooth;
     }
 
-    .logo {
-      font-size: 25px;
-      font-weight: bold;
-      color: #1746a2;
+    body{
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--fundo);
+      color:var(--texto);
+      line-height:1.6;
     }
 
-    .logo span {
-      color: #12a594;
+    header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(255,255,255,.96);
+      border-bottom:1px solid var(--borda);
+      backdrop-filter:blur(10px);
     }
 
-    nav a {
-      color: #344054;
-      text-decoration: none;
-      margin-left: 28px;
-      font-weight: 600;
+    .nav{
+      max-width:1200px;
+      margin:auto;
+      padding:18px 24px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
     }
 
-    .hero {
-      min-height: 520px;
-      display: flex;
-      align-items: center;
-      padding: 70px 8%;
-      background: linear-gradient(135deg, #eef4ff, #ecfdf8);
+    .logo{
+      font-size:24px;
+      font-weight:800;
+      color:var(--azul);
+      letter-spacing:-.5px;
     }
 
-    .hero-content {
-      max-width: 750px;
+    .logo span{
+      color:var(--verde);
     }
 
-    .tag {
-      display: inline-block;
-      background: #dff7f1;
-      color: #087f6d;
-      padding: 8px 16px;
-      border-radius: 30px;
-      font-weight: bold;
-      margin-bottom: 22px;
+    nav a{
+      text-decoration:none;
+      color:#344054;
+      margin-left:26px;
+      font-weight:600;
+      font-size:15px;
     }
 
-    h1 {
-      font-size: 52px;
-      line-height: 1.1;
-      color: #101828;
-      margin-bottom: 22px;
+    nav a:hover{
+      color:var(--azul2);
     }
 
-    h1 span {
-      color: #1746a2;
+    .hero{
+      min-height:650px;
+      display:flex;
+      align-items:center;
+      background:
+        radial-gradient(circle at 85% 25%, rgba(18,165,148,.18), transparent 30%),
+        radial-gradient(circle at 70% 60%, rgba(30,99,233,.12), transparent 30%),
+        linear-gradient(135deg,#F8FAFF,#EFF8F6);
     }
 
-    .hero p {
-      font-size: 20px;
-      line-height: 1.6;
-      color: #475467;
-      max-width: 680px;
+    .hero-grid{
+      max-width:1200px;
+      width:100%;
+      margin:auto;
+      padding:80px 24px;
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:60px;
+      align-items:center;
     }
 
-    .btn {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 15px 26px;
-      background: #1746a2;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
+    .tag{
+      display:inline-block;
+      padding:8px 16px;
+      background:var(--verde-claro);
+      color:#087F6D;
+      border-radius:30px;
+      font-weight:700;
+      margin-bottom:20px;
     }
 
-    section {
-      padding: 75px 8%;
+    h1{
+      font-size:56px;
+      line-height:1.08;
+      letter-spacing:-2px;
+      margin-bottom:24px;
     }
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 45px;
+    h1 span{
+      color:var(--azul2);
     }
 
-    .section-title h2 {
-      font-size: 36px;
-      color: #101828;
-      margin-bottom: 12px;
+    .hero p{
+      color:#475467;
+      font-size:20px;
+      max-width:720px;
     }
 
-    .section-title p {
-      color: #667085;
-      font-size: 18px;
+    .botoes{
+      display:flex;
+      gap:14px;
+      margin-top:30px;
+      flex-wrap:wrap;
     }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      max-width: 1200px;
-      margin: auto;
+    .btn{
+      display:inline-block;
+      text-decoration:none;
+      padding:15px 24px;
+      border-radius:9px;
+      font-weight:700;
     }
 
-    .card {
-      background: white;
-      padding: 32px;
-      border-radius: 14px;
-      border: 1px solid #e4e7ec;
+    .btn-primary{
+      background:var(--azul2);
+      color:white;
     }
 
-    .card h3 {
-      color: #1746a2;
-      margin-bottom: 14px;
-      font-size: 21px;
+    .btn-secondary{
+      background:white;
+      color:var(--azul);
+      border:1px solid var(--borda);
     }
 
-    .card p {
-      color: #667085;
-      line-height: 1.6;
+    .hero-card{
+      background:white;
+      padding:32px;
+      border:1px solid var(--borda);
+      border-radius:20px;
+      box-shadow:0 25px 60px rgba(16,24,40,.10);
     }
 
-    .empresa {
-      background: #ffffff;
+    .hero-card h3{
+      color:var(--azul);
+      margin-bottom:18px;
+      font-size:22px;
     }
 
-    .empresa-content {
-      max-width: 900px;
-      margin: auto;
-      text-align: center;
+    .hero-item{
+      padding:17px 0;
+      border-bottom:1px solid var(--borda);
     }
 
-    .empresa-content p {
-      color: #475467;
-      font-size: 18px;
-      line-height: 1.8;
+    .hero-item:last-child{
+      border-bottom:none;
     }
 
-    .dados {
-      margin-top: 30px;
-      padding: 25px;
-      background: #f8fafc;
-      border-radius: 12px;
+    .hero-item strong{
+      display:block;
+      margin-bottom:4px;
     }
 
-    footer {
-      background: #101828;
-      color: #d0d5dd;
-      padding: 40px 8%;
-      text-align: center;
+    .hero-item span{
+      color:var(--cinza);
+      font-size:14px;
     }
 
-    footer strong {
-      color: white;
+    section{
+      padding:90px 24px;
     }
 
-    @media(max-width: 800px) {
-      .cards {
-        grid-template-columns: 1fr;
+    .container{
+      max-width:1200px;
+      margin:auto;
+    }
+
+    .section-head{
+      max-width:750px;
+      margin:0 auto 50px;
+      text-align:center;
+    }
+
+    .section-head small{
+      color:var(--verde);
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:1px;
+    }
+
+    .section-head h2{
+      font-size:40px;
+      margin:10px 0 14px;
+      letter-spacing:-1px;
+    }
+
+    .section-head p{
+      color:var(--cinza);
+      font-size:18px;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+    }
+
+    .card{
+      background:white;
+      border:1px solid var(--borda);
+      border-radius:16px;
+      padding:30px;
+      transition:.25s;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 20px 40px rgba(16,24,40,.08);
+    }
+
+    .icon{
+      width:46px;
+      height:46px;
+      border-radius:12px;
+      background:#EEF4FF;
+      color:var(--azul2);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:21px;
+      font-weight:800;
+      margin-bottom:20px;
+    }
+
+    .card h3{
+      font-size:20px;
+      margin-bottom:10px;
+    }
+
+    .card p{
+      color:var(--cinza);
+    }
+
+    .about{
+      background:white;
+    }
+
+    .about-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:60px;
+      align-items:center;
+    }
+
+    .about h2{
+      font-size:42px;
+      margin-bottom:20px;
+      letter-spacing:-1px;
+    }
+
+    .about p{
+      color:#475467;
+      font-size:18px;
+      margin-bottom:18px;
+    }
+
+    .numbers{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:15px;
+    }
+
+    .number-box{
+      padding:25px;
+      border-radius:15px;
+      background:var(--fundo);
+      border:1px solid var(--borda);
+    }
+
+    .number-box strong{
+      display:block;
+      color:var(--azul2);
+      font-size:22px;
+      margin-bottom:5px;
+    }
+
+    .number-box span{
+      color:var(--cinza);
+    }
+
+    .processo{
+      background:#0F1D36;
+      color:white;
+    }
+
+    .processo .section-head p{
+      color:#CBD5E1;
+    }
+
+    .processo-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
+    }
+
+    .passo{
+      padding:30px;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:16px;
+      background:rgba(255,255,255,.04);
+    }
+
+    .passo-num{
+      color:#55D6C5;
+      font-size:14px;
+      font-weight:800;
+      margin-bottom:14px;
+    }
+
+    .passo h3{
+      margin-bottom:10px;
+    }
+
+    .passo p{
+      color:#CBD5E1;
+    }
+
+    .cta{
+      padding:90px 24px;
+    }
+
+    .cta-box{
+      max-width:1100px;
+      margin:auto;
+      padding:55px;
+      border-radius:24px;
+      color:white;
+      background:linear-gradient(135deg,var(--azul),var(--azul2));
+      text-align:center;
+    }
+
+    .cta-box h2{
+      font-size:38px;
+      margin-bottom:15px;
+    }
+
+    .cta-box p{
+      max-width:700px;
+      margin:auto;
+      color:#E8EEFF;
+      font-size:18px;
+    }
+
+    .cta .btn{
+      background:white;
+      color:var(--azul);
+      margin-top:25px;
+    }
+
+    footer{
+      background:#0B1220;
+      color:#98A2B3;
+      padding:55px 24px;
+    }
+
+    .footer-grid{
+      max-width:1200px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr;
+      gap:40px;
+    }
+
+    footer h3{
+      color:white;
+      margin-bottom:14px;
+    }
+
+    footer a{
+      display:block;
+      color:#CBD5E1;
+      text-decoration:none;
+      margin:7px 0;
+    }
+
+    .copyright{
+      max-width:1200px;
+      margin:40px auto 0;
+      padding-top:25px;
+      border-top:1px solid #1D2939;
+      font-size:14px;
+    }
+
+    @media(max-width:900px){
+      .hero-grid,
+      .about-grid{
+        grid-template-columns:1fr;
       }
 
-      h1 {
-        font-size: 38px;
+      .cards{
+        grid-template-columns:1fr 1fr;
       }
 
-      nav {
-        display: none;
+      .processo-grid{
+        grid-template-columns:1fr 1fr;
+      }
+
+      h1{
+        font-size:44px;
+      }
+    }
+
+    @media(max-width:600px){
+      nav{
+        display:none;
+      }
+
+      .cards,
+      .processo-grid,
+      .numbers,
+      .footer-grid{
+        grid-template-columns:1fr;
+      }
+
+      h1{
+        font-size:38px;
+      }
+
+      .section-head h2,
+      .about h2{
+        font-size:32px;
+      }
+
+      .hero{
+        min-height:auto;
+      }
+
+      .cta-box{
+        padding:38px 22px;
       }
     }
   </style>
@@ -197,152 +465,299 @@
 <body>
 
 <header>
-  <div class="logo">INSPIRE <span>HUB SOLTECH</span></div>
+  <div class="nav">
+    <div class="logo">INSPIRE <span>HUB SOLTECH</span></div>
 
-  <nav>
-    <a href="#inicio">Início</a>
-    <a href="#solucoes">Soluções</a>
-    <a href="#empresa">Empresa</a>
-    <a href="#contato">Contato</a>
-  </nav>
+    <nav>
+      <a href="#inicio">Início</a>
+      <a href="#solucoes">Soluções</a>
+      <a href="#empresa">Empresa</a>
+      <a href="#como-funciona">Como trabalhamos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </div>
 </header>
 
 <main>
 
 <section class="hero" id="inicio">
-  <div class="hero-content">
+  <div class="hero-grid">
 
-    <div class="tag">Gestão • Tecnologia • Automação</div>
+    <div>
+      <div class="tag">Gestão • Tecnologia • Automação</div>
 
-    <h1>
-      Tecnologia para transformar
-      <span>a gestão da sua empresa.</span>
-    </h1>
+      <h1>
+        Transformamos processos em
+        <span>soluções inteligentes.</span>
+      </h1>
 
-    <p>
-      Desenvolvemos soluções tecnológicas e sistemas sob medida
-      para automatizar processos, organizar informações e tornar
-      a gestão empresarial mais eficiente.
-    </p>
+      <p>
+        Desenvolvemos tecnologia para organizar operações,
+        automatizar rotinas, integrar sistemas e oferecer
+        mais controle para a gestão das empresas.
+      </p>
 
-    <a class="btn" href="#solucoes">Conheça nossas soluções</a>
+      <div class="botoes">
+        <a class="btn btn-primary" href="#solucoes">Conheça nossas soluções</a>
+        <a class="btn btn-secondary" href="#contato">Fale com a Inspire</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <h3>Tecnologia conectada à gestão</h3>
+
+      <div class="hero-item">
+        <strong>Sistemas sob medida</strong>
+        <span>Soluções desenvolvidas de acordo com cada operação.</span>
+      </div>
+
+      <div class="hero-item">
+        <strong>Automação</strong>
+        <span>Menos tarefas repetitivas e mais eficiência.</span>
+      </div>
+
+      <div class="hero-item">
+        <strong>Integrações</strong>
+        <span>APIs, plataformas e ferramentas trabalhando juntas.</span>
+      </div>
+
+      <div class="hero-item">
+        <strong>Gestão inteligente</strong>
+        <span>Informações organizadas para decisões melhores.</span>
+      </div>
+    </div>
 
   </div>
 </section>
 
 <section id="solucoes">
+  <div class="container">
 
-  <div class="section-title">
-    <h2>Nossas soluções</h2>
-    <p>Tecnologia aplicada às necessidades reais das empresas.</p>
+    <div class="section-head">
+      <small>Soluções</small>
+      <h2>Tecnologia para empresas que querem evoluir</h2>
+      <p>
+        Criamos ferramentas digitais voltadas às necessidades
+        reais de gestão, operação e crescimento das empresas.
+      </p>
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="icon">01</div>
+        <h3>Desenvolvimento de Sistemas</h3>
+        <p>
+          Sistemas desenvolvidos sob encomenda, adequados aos
+          processos, regras e necessidades de cada organização.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">02</div>
+        <h3>Automação de Processos</h3>
+        <p>
+          Automatização de tarefas operacionais, controles,
+          notificações e rotinas administrativas.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">03</div>
+        <h3>Integração de APIs</h3>
+        <p>
+          Integração entre sistemas, plataformas financeiras,
+          comunicação e diferentes serviços digitais.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">04</div>
+        <h3>Soluções Web</h3>
+        <p>
+          Desenvolvimento de interfaces, portais, sites e
+          aplicações acessíveis de diferentes dispositivos.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">05</div>
+        <h3>Consultoria em Tecnologia</h3>
+        <p>
+          Análise de processos e planejamento de soluções
+          tecnológicas voltadas à eficiência empresarial.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">06</div>
+        <h3>Gestão Integrada</h3>
+        <p>
+          Estruturação de ferramentas para centralizar dados,
+          controles, indicadores e informações gerenciais.
+        </p>
+      </div>
+
+    </div>
   </div>
+</section>
 
-  <div class="cards">
+<section class="about" id="empresa">
+  <div class="container about-grid">
 
-    <div class="card">
-      <h3>Desenvolvimento de Sistemas</h3>
+    <div>
+      <div class="tag">Sobre a empresa</div>
+
+      <h2>Inspire Hub Soltech</h2>
+
       <p>
-        Desenvolvimento de programas de computador sob encomenda,
-        de acordo com os processos e necessidades de cada empresa.
+        A Inspire Hub Soltech nasceu com o propósito de aproximar
+        tecnologia e gestão.
+      </p>
+
+      <p>
+        Desenvolvemos soluções capazes de transformar processos
+        manuais e fragmentados em ambientes digitais mais
+        organizados, integrados e eficientes.
+      </p>
+
+      <p>
+        Nosso trabalho começa pela compreensão da realidade da
+        empresa para então desenvolver a tecnologia adequada
+        àquela operação.
       </p>
     </div>
 
-    <div class="card">
-      <h3>Automação de Processos</h3>
+    <div class="numbers">
+
+      <div class="number-box">
+        <strong>Software</strong>
+        <span>Desenvolvimento sob encomenda</span>
+      </div>
+
+      <div class="number-box">
+        <strong>Automação</strong>
+        <span>Processos empresariais</span>
+      </div>
+
+      <div class="number-box">
+        <strong>Integração</strong>
+        <span>Sistemas e plataformas</span>
+      </div>
+
+      <div class="number-box">
+        <strong>Gestão</strong>
+        <span>Informação e controle</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="processo" id="como-funciona">
+
+  <div class="container">
+
+    <div class="section-head">
+      <small>Como trabalhamos</small>
+      <h2>Da necessidade à solução</h2>
       <p>
-        Integração de tecnologias para reduzir tarefas manuais,
-        organizar rotinas e aumentar a eficiência operacional.
+        Tecnologia deve resolver problemas reais e simplificar processos.
       </p>
     </div>
 
-    <div class="card">
-      <h3>Consultoria em Tecnologia</h3>
-      <p>
-        Planejamento e implementação de soluções de tecnologia
-        da informação voltadas à gestão empresarial.
-      </p>
-    </div>
+    <div class="processo-grid">
 
-    <div class="card">
-      <h3>Web Design</h3>
-      <p>
-        Desenvolvimento de interfaces e soluções digitais
-        modernas para empresas e organizações.
-      </p>
-    </div>
+      <div class="passo">
+        <div class="passo-num">ETAPA 01</div>
+        <h3>Entender</h3>
+        <p>
+          Conhecemos o processo, a rotina e os desafios da empresa.
+        </p>
+      </div>
 
-    <div class="card">
-      <h3>Integrações</h3>
-      <p>
-        Integração de sistemas, APIs e plataformas para criar
-        processos empresariais conectados e automatizados.
-      </p>
-    </div>
+      <div class="passo">
+        <div class="passo-num">ETAPA 02</div>
+        <h3>Planejar</h3>
+        <p>
+          Estruturamos a solução e definimos os recursos necessários.
+        </p>
+      </div>
 
-    <div class="card">
-      <h3>Soluções em Gestão</h3>
-      <p>
-        Desenvolvimento de ferramentas que proporcionam controle,
-        organização e informação para apoiar decisões empresariais.
-      </p>
+      <div class="passo">
+        <div class="passo-num">ETAPA 03</div>
+        <h3>Desenvolver</h3>
+        <p>
+          Transformamos o planejamento em uma solução tecnológica.
+        </p>
+      </div>
+
+      <div class="passo">
+        <div class="passo-num">ETAPA 04</div>
+        <h3>Evoluir</h3>
+        <p>
+          Acompanhamos a operação e desenvolvemos novas melhorias.
+        </p>
+      </div>
+
     </div>
 
   </div>
 </section>
 
-<section class="empresa" id="empresa">
+<section class="cta" id="contato">
 
-  <div class="section-title">
-    <h2>Inspire Hub Soltech</h2>
-    <p>Soluções em gestão e tecnologia.</p>
-  </div>
+  <div class="cta-box">
 
-  <div class="empresa-content">
+    <h2>Vamos transformar sua gestão?</h2>
 
     <p>
-      A Inspire Hub Soltech desenvolve soluções tecnológicas voltadas
-      à modernização da gestão empresarial. Nosso objetivo é transformar
-      processos complexos em ferramentas simples, integradas e eficientes.
+      Converse com a Inspire Hub Soltech e descubra como
+      tecnologia, automação e integração podem simplificar
+      os processos da sua empresa.
     </p>
 
-    <div class="dados">
-      <strong>INSPIRE HUB SOLTECH LTDA</strong><br><br>
-      Fortaleza - Ceará - Brasil<br>
-      Site oficial: inspirehubsoltech.com.br
-    </div>
+    <a class="btn" href="mailto:inspiresolucoesemgestao@gmail.com">
+      Entrar em contato
+    </a>
 
   </div>
-
-</section>
-
-<section id="contato">
-
-  <div class="section-title">
-    <h2>Contato</h2>
-    <p>Entre em contato com a Inspire Hub Soltech.</p>
-  </div>
-
-  <div class="empresa-content">
-    <p>
-      Fortaleza - Ceará - Brasil
-    </p>
-  </div>
-
 </section>
 
 </main>
 
 <footer>
 
-  <strong>INSPIRE HUB SOLTECH LTDA</strong>
+  <div class="footer-grid">
 
-  <br><br>
+    <div>
+      <h3>Inspire Hub Soltech</h3>
+      <p>
+        Desenvolvimento de sistemas, automação,
+        integração e soluções em tecnologia para gestão empresarial.
+      </p>
+    </div>
 
-  Soluções em Gestão e Tecnologia
+    <div>
+      <h3>Empresa</h3>
+      <a href="#empresa">Sobre nós</a>
+      <a href="#solucoes">Soluções</a>
+      <a href="#como-funciona">Como trabalhamos</a>
+    </div>
 
-  <br><br>
+    <div>
+      <h3>Contato</h3>
+      <p>Fortaleza • Ceará • Brasil</p>
+      <a href="mailto:inspiresolucoesemgestao@gmail.com">
+        inspiresolucoesemgestao@gmail.com
+      </a>
+    </div>
 
-  © 2026 Inspire Hub Soltech. Todos os direitos reservados.
+  </div>
+
+  <div class="copyright">
+    © 2026 Inspire Hub Soltech. Todos os direitos reservados.
+  </div>
 
 </footer>
 
