@@ -1,1018 +1,1523 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Inspire Hub Soltech | Tecnologia, Sistemas e Automação</title>
-
-  <meta name="description" content="Soluções em tecnologia, desenvolvimento de sistemas, automação de processos, integração de APIs e gestão empresarial.">
-
-  <style>
-    :root{
-      --bg:#061225;
-      --bg2:#081b36;
-      --card:#0d2445;
-      --blue:#0aa8ff;
-      --blue2:#1468ff;
-      --cyan:#08e0d1;
-      --green:#11c96f;
-      --white:#ffffff;
-      --text:#d7e4f6;
-      --muted:#92a6c3;
-      --border:rgba(255,255,255,.10);
-    }
-
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
-
-    html{
-      scroll-behavior:smooth;
-    }
-
-    body{
-      font-family:Arial,Helvetica,sans-serif;
-      background:var(--bg);
-      color:var(--white);
-      line-height:1.6;
-    }
-
-    a{
-      text-decoration:none;
-    }
-
-    header{
-      position:sticky;
-      top:0;
-      z-index:999;
-      background:rgba(5,17,35,.96);
-      border-bottom:1px solid var(--border);
-      backdrop-filter:blur(12px);
-    }
-
-    .nav{
-      max-width:1240px;
-      margin:auto;
-      padding:10px 24px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:25px;
-      min-height:82px;
-    }
-
-    /* LOGO NOVA */
-    .brand{
-      display:flex;
-      align-items:center;
-      flex-shrink:0;
-    }
-
-    .brand img{
-      display:block;
-      width:260px;
-      max-width:100%;
-      height:auto;
-      object-fit:contain;
-    }
-
-    nav{
-      display:flex;
-      align-items:center;
-      gap:25px;
-    }
-
-    nav a{
-      color:#dce8f7;
-      font-size:14px;
-      font-weight:600;
-    }
-
-    nav a:hover{
-      color:var(--cyan);
-    }
-
-    .whatsapp-top{
-      padding:11px 18px;
-      border-radius:30px;
-      background:var(--green);
-      color:white;
-      font-weight:800;
-      white-space:nowrap;
-      transition:.2s;
-    }
-
-    .whatsapp-top:hover{
-      transform:translateY(-2px);
-      box-shadow:0 8px 20px rgba(17,201,111,.25);
-    }
-
-    .hero{
-      position:relative;
-      overflow:hidden;
-      background:
-        radial-gradient(circle at 78% 35%,rgba(0,210,255,.20),transparent 28%),
-        radial-gradient(circle at 95% 65%,rgba(20,104,255,.22),transparent 25%),
-        linear-gradient(135deg,#061225,#071a34 62%,#07152d);
-    }
-
-    .hero:before{
-      content:"";
-      position:absolute;
-      width:600px;
-      height:2px;
-      right:-80px;
-      bottom:110px;
-      background:linear-gradient(90deg,transparent,var(--cyan),transparent);
-      transform:rotate(-12deg);
-      box-shadow:0 0 28px var(--cyan);
-    }
-
-    .hero-grid{
-      position:relative;
-      z-index:2;
-      max-width:1240px;
-      margin:auto;
-      padding:95px 24px;
-      display:grid;
-      grid-template-columns:1.05fr .95fr;
-      gap:55px;
-      align-items:center;
-    }
-
-    .eyebrow{
-      display:inline-block;
-      color:#b8eaff;
-      background:rgba(15,123,255,.16);
-      border:1px solid rgba(28,168,255,.26);
-      padding:8px 14px;
-      border-radius:30px;
-      font-size:12px;
-      font-weight:800;
-      letter-spacing:.6px;
-      margin-bottom:20px;
-    }
-
-    h1{
-      font-size:56px;
-      line-height:1.06;
-      letter-spacing:-1.6px;
-      margin-bottom:24px;
-    }
-
-    h1 span{
-      background:linear-gradient(90deg,var(--blue),var(--cyan));
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-    }
-
-    .hero p{
-      max-width:650px;
-      color:var(--text);
-      font-size:19px;
-    }
-
-    .hero-buttons{
-      margin-top:30px;
-      display:flex;
-      gap:15px;
-      flex-wrap:wrap;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:14px 22px;
-      border-radius:10px;
-      font-weight:800;
-      transition:.2s;
-    }
-
-    .btn:hover{
-      transform:translateY(-2px);
-    }
-
-    .btn-whatsapp{
-      color:white;
-      background:var(--green);
-    }
-
-    .btn-outline{
-      color:white;
-      border:1px solid var(--blue);
-      background:rgba(0,90,255,.08);
-    }
-
-    .dashboard{
-      border:1px solid rgba(33,188,255,.32);
-      background:linear-gradient(145deg,#0b2343,#07172f);
-      border-radius:22px;
-      padding:22px;
-      box-shadow:
-        0 30px 80px rgba(0,0,0,.42),
-        0 0 45px rgba(0,174,255,.12);
-    }
-
-    .dash-top{
-      display:flex;
-      justify-content:space-between;
-      margin-bottom:22px;
-      color:#a7bbd6;
-      font-size:13px;
-    }
-
-    .dash-grid{
-      display:grid;
-      grid-template-columns:1.5fr 1fr;
-      gap:14px;
-    }
-
-    .dash-box{
-      min-height:145px;
-      border-radius:13px;
-      background:#0d2a51;
-      border:1px solid rgba(255,255,255,.06);
-      padding:18px;
-    }
-
-    .dash-box small{
-      color:#829bbd;
-    }
-
-    .chart{
-      margin-top:30px;
-      height:55px;
-      display:flex;
-      align-items:flex-end;
-      gap:6px;
-    }
-
-    .chart i{
-      display:block;
-      flex:1;
-      background:linear-gradient(var(--blue),var(--cyan));
-      border-radius:4px 4px 0 0;
-    }
-
-    .chart i:nth-child(1){height:26%}
-    .chart i:nth-child(2){height:47%}
-    .chart i:nth-child(3){height:36%}
-    .chart i:nth-child(4){height:74%}
-    .chart i:nth-child(5){height:60%}
-    .chart i:nth-child(6){height:94%}
-
-    .metric{
-      font-size:31px;
-      font-weight:900;
-      margin-top:19px;
-      color:var(--cyan);
-    }
-
-    section{
-      padding:85px 24px;
-    }
-
-    .container{
-      max-width:1240px;
-      margin:auto;
-    }
-
-    .section-head{
-      text-align:center;
-      max-width:760px;
-      margin:0 auto 46px;
-    }
-
-    .section-head span{
-      color:var(--cyan);
-      font-weight:800;
-      text-transform:uppercase;
-      font-size:12px;
-      letter-spacing:2px;
-    }
-
-    .section-head h2{
-      font-size:40px;
-      margin:7px 0 12px;
-    }
-
-    .section-head p{
-      color:var(--muted);
-      font-size:17px;
-    }
-
-    .solutions{
-      background:#091a33;
-    }
-
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-    }
-
-    .card{
-      min-height:215px;
-      padding:27px;
-      border:1px solid var(--border);
-      border-radius:16px;
-      background:linear-gradient(145deg,#102a4d,#0a203e);
-      transition:.25s;
-    }
-
-    .card:hover{
-      transform:translateY(-6px);
-      border-color:rgba(10,168,255,.48);
-      box-shadow:0 15px 35px rgba(0,0,0,.25);
-    }
-
-    .icon{
-      width:48px;
-      height:48px;
-      border-radius:12px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      margin-bottom:20px;
-      font-weight:900;
-      background:linear-gradient(135deg,var(--blue2),var(--cyan));
-      box-shadow:0 0 20px rgba(8,224,209,.2);
-    }
-
-    .card h3{
-      font-size:20px;
-      margin-bottom:9px;
-    }
-
-    .card p{
-      color:#9fb2cc;
-    }
-
-    .about{
-      background:#f4f8ff;
-      color:#0b1930;
-    }
-
-    .about-grid{
-      display:grid;
-      grid-template-columns:.9fr 1.1fr;
-      gap:50px;
-      align-items:center;
-    }
-
-    .about-visual{
-      min-height:410px;
-      border-radius:21px;
-      background:
-        radial-gradient(circle at center,rgba(7,218,255,.22),transparent 35%),
-        linear-gradient(135deg,#07152a,#09284e);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      position:relative;
-      overflow:hidden;
-      padding:40px;
-      box-shadow:inset 0 0 70px rgba(0,174,255,.09);
-    }
-
-    /* LOGO GRANDE NA ÁREA SOBRE */
-    .about-logo{
-      width:100%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-
-    .about-logo img{
-      width:100%;
-      max-width:540px;
-      height:auto;
-      object-fit:contain;
-      filter:drop-shadow(0 18px 25px rgba(0,0,0,.28));
-    }
-
-    .about-content .eyebrow{
-      color:#075caa;
-      background:#e4f7ff;
-    }
-
-    .about-content h2{
-      font-size:42px;
-      line-height:1.15;
-      margin-bottom:20px;
-    }
-
-    .about-content p{
-      color:#52657b;
-      font-size:17px;
-      margin-bottom:16px;
-    }
-
-    .values{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:12px;
-      margin-top:28px;
-    }
-
-    .value{
-      padding:17px;
-      border-radius:12px;
-      background:white;
-      border:1px solid #dfe8f3;
-    }
-
-    .value strong{
-      display:block;
-      color:#0b5fba;
-    }
-
-    .process{
-      background:#07162d;
-    }
-
-    .steps{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:18px;
-    }
-
-    .step{
-      padding:28px;
-      border:1px solid var(--border);
-      border-radius:16px;
-      background:#0a213f;
-    }
-
-    .step-num{
-      width:45px;
-      height:45px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:linear-gradient(135deg,var(--blue),var(--cyan));
-      font-weight:900;
-      color:#041730;
-      margin-bottom:18px;
-    }
-
-    .step h3{
-      margin-bottom:8px;
-    }
-
-    .step p{
-      color:#9cb0ca;
-    }
-
-    .cta{
-      background:#07162d;
-      padding-top:20px;
-    }
-
-    .cta-box{
-      max-width:1240px;
-      margin:auto;
-      border-radius:20px;
-      padding:45px;
-      background:linear-gradient(100deg,#104de5,#06c8dc);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:30px;
-    }
-
-    .cta-box h2{
-      font-size:32px;
-    }
-
-    .cta-box p{
-      color:#e4f7ff;
-    }
-
-    footer{
-      background:#040d1c;
-      padding:55px 24px 25px;
-      color:#9aabc3;
-    }
-
-    .footer-grid{
-      max-width:1240px;
-      margin:auto;
-      display:grid;
-      grid-template-columns:2fr 1fr 1.4fr;
-      gap:45px;
-    }
-
-    footer h3{
-      color:white;
-      margin-bottom:15px;
-    }
-
-    footer a{
-      display:block;
-      color:#b9c7d9;
-      margin:7px 0;
-    }
-
-    .footer-brand{
-      margin-bottom:16px;
-    }
-
-    .footer-brand img{
-      width:300px;
-      max-width:100%;
-      height:auto;
-      margin-bottom:12px;
-    }
-
-    .copy{
-      max-width:1240px;
-      margin:35px auto 0;
-      padding-top:20px;
-      border-top:1px solid var(--border);
-      font-size:13px;
-    }
-
-    @media(max-width:1100px){
-      .brand img{
-        width:215px;
-      }
-
-      nav{
-        gap:16px;
-      }
-
-      nav a{
-        font-size:13px;
-      }
-
-      .whatsapp-top{
-        font-size:13px;
-        padding:10px 14px;
-      }
-    }
-
-    @media(max-width:950px){
-      nav{
-        display:none;
-      }
-
-      .hero-grid,
-      .about-grid{
-        grid-template-columns:1fr;
-      }
-
-      .cards{
-        grid-template-columns:1fr 1fr;
-      }
-
-      .steps{
-        grid-template-columns:1fr 1fr;
-      }
-
-      h1{
-        font-size:44px;
-      }
-
-      .brand img{
-        width:230px;
-      }
-    }
-
-    @media(max-width:620px){
-      .nav{
-        min-height:70px;
-        padding:8px 18px;
-      }
-
-      .brand img{
-        width:205px;
-      }
-
-      .whatsapp-top{
-        display:none;
-      }
-
-      .cards,
-      .steps,
-      .values,
-      .footer-grid{
-        grid-template-columns:1fr;
-      }
-
-      .hero-grid{
-        padding-top:70px;
-      }
-
-      h1{
-        font-size:38px;
-      }
-
-      .section-head h2,
-      .about-content h2{
-        font-size:31px;
-      }
-
-      .cta-box{
-        flex-direction:column;
-        align-items:flex-start;
-        padding:30px;
-      }
-
-      .about-visual{
-        min-height:300px;
-        padding:25px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Inspire Hub Soltech | Tecnologia, Sistemas e Automação</title>
+
+<meta name="description"
+content="Desenvolvimento de sistemas, automação de processos, integrações e soluções tecnológicas para empresas.">
+
+<style>
+
+:root{
+  --navy:#031126;
+  --navy2:#061b38;
+  --navy3:#092850;
+  --blue:#087CFF;
+  --cyan:#00D6EE;
+  --cyan2:#03F1D1;
+  --green:#09C96F;
+  --white:#FFFFFF;
+  --light:#F4F8FC;
+  --text:#D5E5F7;
+  --muted:#8EA7C5;
+  --darktext:#0A1830;
+  --border:rgba(255,255,255,.12);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--navy);
+  color:white;
+  line-height:1.5;
+}
+
+a{
+  text-decoration:none;
+}
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+header{
+  height:78px;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(2,14,32,.97);
+  border-bottom:1px solid rgba(0,205,255,.18);
+  backdrop-filter:blur(12px);
+}
+
+.nav{
+  width:min(1180px,94%);
+  height:100%;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
+
+.logo img{
+  display:block;
+  width:245px;
+  height:auto;
+}
+
+.menu{
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
+
+.menu a{
+  color:#E1EAF6;
+  font-size:13px;
+  font-weight:700;
+  padding:29px 0 23px;
+  position:relative;
+}
+
+.menu a:after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:17px;
+  height:2px;
+  background:var(--cyan);
+  transform:scaleX(0);
+  transition:.2s;
+}
+
+.menu a:hover:after{
+  transform:scaleX(1);
+}
+
+.top-whatsapp{
+  background:linear-gradient(135deg,#00B963,#12D67B);
+  color:white;
+  border-radius:30px;
+  padding:12px 20px;
+  font-size:14px;
+  font-weight:800;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  box-shadow:0 10px 30px rgba(0,196,108,.2);
+}
+
+.wa-icon{
+  width:27px;
+  height:27px;
+  border:2px solid white;
+  border-radius:50%;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-size:14px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  position:relative;
+  min-height:520px;
+  overflow:hidden;
+
+  background:
+  radial-gradient(circle at 76% 40%,rgba(0,177,255,.19),transparent 28%),
+  radial-gradient(circle at 95% 80%,rgba(0,216,238,.12),transparent 24%),
+  linear-gradient(135deg,#031127 0%,#04162F 58%,#06264A 100%);
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  width:780px;
+  height:3px;
+  right:-80px;
+  bottom:83px;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(0,221,255,.8),
+    transparent
+  );
+  transform:rotate(-10deg);
+  box-shadow:0 0 24px var(--cyan);
+}
+
+.hero-inner{
+  width:min(1180px,94%);
+  min-height:520px;
+  margin:auto;
+
+  display:grid;
+  grid-template-columns:46% 54%;
+  align-items:center;
+  gap:20px;
+
+  position:relative;
+  z-index:3;
+}
+
+.badge{
+  display:inline-block;
+  padding:7px 14px;
+  border-radius:30px;
+
+  background:#082C5D;
+  border:1px solid #0A64B7;
+
+  color:#D7F7FF;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.5px;
+
+  margin-bottom:14px;
+}
+
+.hero h1{
+  font-size:47px;
+  line-height:1.03;
+  letter-spacing:-1.5px;
+  max-width:570px;
+}
+
+.hero h1 span{
+  background:linear-gradient(90deg,#14A4FF,#03E0C3);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.hero-copy{
+  color:#CFDDEE;
+  margin-top:15px;
+  max-width:590px;
+  font-size:16px;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:14px;
+  margin-top:22px;
+  flex-wrap:wrap;
+}
+
+.button{
+  padding:13px 22px;
+  border-radius:25px;
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  font-size:14px;
+  font-weight:800;
+  transition:.2s;
+}
+
+.button:hover{
+  transform:translateY(-2px);
+}
+
+.button-green{
+  background:linear-gradient(135deg,#0BC869,#14DB7C);
+  color:white;
+}
+
+.button-outline{
+  border:1px solid #07B9FF;
+  color:white;
+  background:rgba(6,49,91,.3);
+}
+
+/* =========================
+   MOCKUP NOTEBOOK
+========================= */
+
+.tech-visual{
+  position:relative;
+  height:420px;
+}
+
+.glow{
+  position:absolute;
+  width:430px;
+  height:230px;
+  background:rgba(0,184,255,.15);
+  filter:blur(50px);
+  right:30px;
+  top:90px;
+}
+
+.laptop{
+  width:470px;
+  position:absolute;
+  right:65px;
+  top:46px;
+  transform:perspective(900px) rotateY(-8deg);
+}
+
+.screen{
+  background:#05152D;
+  border:8px solid #152843;
+  border-radius:15px 15px 7px 7px;
+  height:290px;
+  padding:14px;
+
+  box-shadow:
+    0 0 0 1px #5079A6,
+    0 25px 50px rgba(0,0,0,.45),
+    0 0 35px rgba(0,172,255,.15);
+}
+
+.screen-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  color:#6E8EAF;
+  font-size:9px;
+  margin-bottom:12px;
+}
+
+.screen-layout{
+  display:grid;
+  grid-template-columns:74px 1fr;
+  gap:10px;
+  height:235px;
+}
+
+.side-menu{
+  background:#061D3A;
+  border-radius:7px;
+  padding:10px 7px;
+}
+
+.side-menu b{
+  color:#06DDEC;
+  font-size:9px;
+}
+
+.side-menu div{
+  height:7px;
+  background:#14385C;
+  border-radius:5px;
+  margin-top:14px;
+}
+
+.dashboard{
+  display:grid;
+  grid-template-columns:1.3fr .7fr;
+  gap:8px;
+}
+
+.dashboard-card{
+  background:#0B2B53;
+  border:1px solid rgba(50,137,214,.18);
+  border-radius:8px;
+  padding:10px;
+}
+
+.dashboard-card small{
+  font-size:8px;
+  color:#7495B7;
+}
+
+.graph{
+  height:63px;
+  display:flex;
+  align-items:end;
+  gap:5px;
+  padding-top:11px;
+}
+
+.graph i{
+  display:block;
+  flex:1;
+  border-radius:2px 2px 0 0;
+  background:linear-gradient(#087CFF,#00DDED);
+}
+
+.graph i:nth-child(1){height:30%}
+.graph i:nth-child(2){height:48%}
+.graph i:nth-child(3){height:63%}
+.graph i:nth-child(4){height:45%}
+.graph i:nth-child(5){height:79%}
+.graph i:nth-child(6){height:65%}
+
+.circle-chart{
+  width:60px;
+  height:60px;
+  border:12px solid #095AD4;
+  border-right-color:#00DCD2;
+  border-radius:50%;
+  margin:15px auto;
+}
+
+.data-bars{
+  margin-top:15px;
+}
+
+.data-bars span{
+  display:block;
+  height:5px;
+  margin:8px 0;
+  background:#0D4E82;
+  border-radius:4px;
+}
+
+.data-bars span:nth-child(2){
+  width:80%;
+  background:#087CFF;
+}
+
+.data-bars span:nth-child(3){
+  width:55%;
+  background:#00D9D4;
+}
+
+.keyboard{
+  width:540px;
+  height:22px;
+  background:linear-gradient(#8FA4BA,#33485D);
+  position:absolute;
+  left:-34px;
+  bottom:-20px;
+  border-radius:3px 3px 20px 20px;
+  box-shadow:0 15px 18px rgba(0,0,0,.45);
+}
+
+.phone{
+  position:absolute;
+  width:94px;
+  height:190px;
+  right:18px;
+  top:180px;
+
+  background:#05152A;
+  border:5px solid #445B75;
+  border-radius:19px;
+
+  box-shadow:0 18px 40px rgba(0,0,0,.5);
+}
+
+.phone:before{
+  content:"";
+  position:absolute;
+  width:32px;
+  height:5px;
+  background:#263A51;
+  border-radius:5px;
+  top:5px;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+.phone-content{
+  margin-top:43px;
+  text-align:center;
+}
+
+.phone-logo{
+  color:#09E1E5;
+  font-size:24px;
+  font-weight:900;
+}
+
+.phone-content strong{
+  display:block;
+  margin-top:8px;
+  font-size:11px;
+}
+
+.phone-content span{
+  display:block;
+  color:#05DCD9;
+  font-size:8px;
+  letter-spacing:1px;
+}
+
+/* =========================
+   SOLUÇÕES
+========================= */
+
+.solutions{
+  background:
+    linear-gradient(180deg,#DDEAF7,#F5F9FC);
+  color:var(--darktext);
+
+  padding:18px 0 25px;
+}
+
+.section-heading{
+  text-align:center;
+  margin-bottom:17px;
+}
+
+.section-heading h2{
+  font-size:27px;
+}
+
+.section-heading p{
+  color:#647C99;
+  font-size:13px;
+}
+
+.heading-line{
+  display:inline-block;
+  width:100px;
+  height:2px;
+  background:linear-gradient(90deg,var(--blue),var(--cyan));
+  vertical-align:middle;
+  margin:0 13px 7px;
+}
+
+.solution-grid{
+  width:min(1320px,92%);
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:15px;
+}
+
+.solution-card{
+  background:linear-gradient(145deg,#0C2850,#082040);
+  color:white;
+
+  border:1px solid rgba(0,134,255,.25);
+  border-radius:14px;
+
+  min-height:145px;
+  padding:18px;
+
+  box-shadow:0 15px 28px rgba(11,36,68,.18);
+}
+
+.solution-icon{
+  width:43px;
+  height:43px;
+  border-radius:11px;
+
+  background:linear-gradient(135deg,#087CFF,#00DED8);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:18px;
+  font-weight:900;
+
+  margin-bottom:8px;
+}
+
+.solution-card h3{
+  font-size:15px;
+  line-height:1.1;
+  margin-bottom:7px;
+}
+
+.solution-card p{
+  color:#C9D8E9;
+  font-size:11px;
+  line-height:1.3;
+}
+
+/* =========================
+   SOBRE + PROCESSO
+========================= */
+
+.company-area{
+  background:#EEF4FA;
+  color:var(--darktext);
+  padding:0 0 13px;
+}
+
+.company-grid{
+  width:min(1320px,92%);
+  margin:auto;
+
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:14px;
+}
+
+.company-image{
+  min-height:250px;
+  border-radius:14px;
+
+  background:
+    radial-gradient(circle at 40% 40%,rgba(0,221,255,.13),transparent 32%),
+    linear-gradient(135deg,#041128,#082A50);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  overflow:hidden;
+}
+
+.company-image img{
+  width:78%;
+  max-width:410px;
+  filter:drop-shadow(0 18px 30px rgba(0,0,0,.5));
+}
+
+.about-card,
+.process-card{
+  background:white;
+  border-radius:14px;
+  padding:22px 25px;
+}
+
+.mini-title{
+  font-size:14px;
+  font-weight:800;
+  color:#091A34;
+}
+
+.about-card h2{
+  font-size:24px;
+  line-height:1.05;
+  margin:3px 0 10px;
+}
+
+.about-card p{
+  font-size:12px;
+  color:#536980;
+  margin-bottom:8px;
+}
+
+.values{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  margin-top:15px;
+  gap:8px;
+}
+
+.value{
+  text-align:center;
+}
+
+.value-icon{
+  margin:auto;
+  width:37px;
+  height:37px;
+  background:linear-gradient(135deg,#087CFF,#00D8E3);
+  border-radius:50%;
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:15px;
+}
+
+.value b{
+  font-size:10px;
+  display:block;
+  margin-top:5px;
+}
+
+.process-card h2{
+  font-size:20px;
+}
+
+.process-sub{
+  color:#69809A;
+  font-size:12px;
+  margin-bottom:12px;
+}
+
+.process-step{
+  display:grid;
+  grid-template-columns:36px 1fr;
+  gap:10px;
+  align-items:center;
+  margin:8px 0;
+}
+
+.process-number{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+
+  background:linear-gradient(135deg,#1767FF,#03D4CE);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  color:white;
+  font-size:11px;
+  font-weight:900;
+}
+
+.process-step:nth-child(5) .process-number{
+  background:linear-gradient(135deg,#00B77A,#00E9B3);
+}
+
+.process-step b{
+  display:block;
+  font-size:13px;
+}
+
+.process-step span{
+  color:#627993;
+  font-size:10px;
+}
+
+/* =========================
+   CTA
+========================= */
+
+.cta{
+  background:#EEF4FA;
+  padding:0 0 10px;
+}
+
+.cta-box{
+  width:min(1320px,92%);
+  margin:auto;
+
+  min-height:65px;
+  border-radius:13px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:12px 25px;
+
+  background:linear-gradient(90deg,#105BFF,#02BFDF);
+
+  color:white;
+}
+
+.cta h2{
+  font-size:17px;
+}
+
+.cta p{
+  font-size:12px;
+  color:#D9F5FF;
+}
+
+.cta-button{
+  background:#05C86B;
+  color:white;
+
+  padding:10px 21px;
+  border-radius:30px;
+
+  font-weight:800;
+  font-size:13px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  background:#031126;
+  padding:22px 0 13px;
+}
+
+.footer-grid{
+  width:min(1150px,92%);
+  margin:auto;
+
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr 1fr;
+  gap:30px;
+}
+
+.footer-logo img{
+  width:240px;
+}
+
+footer h4{
+  font-size:11px;
+  color:white;
+  margin-bottom:7px;
+}
+
+footer a,
+footer p{
+  color:#A9BCD3;
+  font-size:10px;
+  display:block;
+  margin:4px 0;
+}
+
+.social{
+  display:flex;
+  gap:9px;
+  margin-top:8px;
+}
+
+.social span{
+  width:27px;
+  height:27px;
+  border-radius:6px;
+
+  background:#087CFF;
+  color:white;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:11px;
+  font-weight:800;
+}
+
+.copy{
+  width:min(1150px,92%);
+  margin:15px auto 0;
+
+  padding-top:10px;
+  border-top:1px solid rgba(255,255,255,.1);
+
+  color:#7E96B1;
+  font-size:9px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:1100px){
+
+  .menu{
+    display:none;
+  }
+
+  .hero-inner{
+    grid-template-columns:1fr;
+    padding:55px 0 80px;
+  }
+
+  .hero-copy-area{
+    max-width:700px;
+  }
+
+  .tech-visual{
+    height:390px;
+  }
+
+  .laptop{
+    left:50%;
+    right:auto;
+    transform:
+      translateX(-50%)
+      perspective(900px)
+      rotateY(-5deg);
+  }
+
+  .phone{
+    right:16%;
+  }
+
+  .solution-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .company-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:650px){
+
+  header{
+    height:68px;
+  }
+
+  .nav{
+    width:94%;
+  }
+
+  .logo img{
+    width:190px;
+  }
+
+  .top-whatsapp{
+    font-size:0;
+    padding:8px;
+  }
+
+  .top-whatsapp .wa-icon{
+    font-size:13px;
+  }
+
+  .hero{
+    min-height:auto;
+  }
+
+  .hero-inner{
+    padding:45px 0;
+  }
+
+  .hero h1{
+    font-size:37px;
+  }
+
+  .hero-copy{
+    font-size:15px;
+  }
+
+  .tech-visual{
+    height:300px;
+    transform:scale(.76);
+    transform-origin:top center;
+    margin-bottom:-70px;
+  }
+
+  .solution-grid{
+    grid-template-columns:1fr;
+  }
+
+  .solution-card{
+    min-height:auto;
+  }
+
+  .values{
+    grid-template-columns:1fr 1fr 1fr;
+  }
+
+  .cta-box{
+    flex-direction:column;
+    text-align:center;
+    gap:12px;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+</style>
 </head>
 
 <body>
 
 <header>
-  <div class="nav">
+<div class="nav">
 
-    <a class="brand" href="#inicio">
-      <img
-        src="logo-inspire.png.png"
-        alt="Inspire Hub Soltech - Tecnologia, Sistemas e Automação">
-    </a>
+<a href="#inicio" class="logo">
+<img src="logo-inspire.png.png"
+alt="Inspire Hub Soltech">
+</a>
 
-    <nav>
-      <a href="#inicio">Início</a>
-      <a href="#solucoes">Soluções</a>
-      <a href="#empresa">Empresa</a>
-      <a href="#processo">Como trabalhamos</a>
-      <a href="#contato">Contato</a>
-    </nav>
+<nav class="menu">
+<a href="#inicio">Início</a>
+<a href="#solucoes">Soluções</a>
+<a href="#sistemas">Sistemas</a>
+<a href="#empresa">Empresa</a>
+<a href="#processo">Como Trabalhamos</a>
+<a href="#contato">Contato</a>
+</nav>
 
-    <a class="whatsapp-top"
-       href="https://wa.me/5585986300535"
-       target="_blank"
-       rel="noopener">
-       WhatsApp (85) 98630-0535
-    </a>
+<a
+class="top-whatsapp"
+href="https://wa.me/5585986300535"
+target="_blank"
+rel="noopener">
 
-  </div>
+<span class="wa-icon">☎</span>
+(85) 98630-0535
+<span>→</span>
+
+</a>
+
+</div>
 </header>
 
 <main>
 
+<!-- HERO -->
+
 <section class="hero" id="inicio">
 
-  <div class="hero-grid">
+<div class="hero-inner">
 
-    <div>
+<div class="hero-copy-area">
 
-      <div class="eyebrow">
-        TECNOLOGIA QUE IMPULSIONA RESULTADOS
-      </div>
+<div class="badge">
+● TECNOLOGIA QUE IMPULSIONA RESULTADOS
+</div>
 
-      <h1>
-        Soluções tecnológicas que conectam
-        <span>ideias, processos e resultados.</span>
-      </h1>
+<h1>
+Soluções tecnológicas<br>
+que conectam ideias,<br>
+processos e <span>resultados.</span>
+</h1>
 
-      <p>
-        Desenvolvemos sistemas, automatizamos processos e integramos
-        tecnologia para empresas que querem crescer com mais eficiência,
-        segurança, organização e controle.
-      </p>
+<p class="hero-copy">
+Desenvolvemos sistemas, automatizamos processos e integramos
+tecnologia para empresas que querem crescer com mais eficiência,
+segurança e controle.
+</p>
 
-      <div class="hero-buttons">
+<div class="hero-buttons">
 
-        <a class="btn btn-whatsapp"
-           href="https://wa.me/5585986300535"
-           target="_blank"
-           rel="noopener">
-           Fale no WhatsApp
-        </a>
+<a
+href="https://wa.me/5585986300535"
+target="_blank"
+rel="noopener"
+class="button button-green">
 
-        <a class="btn btn-outline"
-           href="#solucoes">
-           Conheça nossas soluções
-        </a>
+<span class="wa-icon">☎</span>
+Fale no WhatsApp
+<span>→</span>
 
-      </div>
-    </div>
+</a>
 
-    <div class="dashboard">
+<a href="#solucoes"
+class="button button-outline">
+Conheça nossas soluções →
+</a>
 
-      <div class="dash-top">
-        <strong>INSPIRE HUB • DASHBOARD</strong>
-        <span>Visão gerencial</span>
-      </div>
+</div>
 
-      <div class="dash-grid">
+</div>
 
-        <div class="dash-box">
-          <small>Performance dos processos</small>
+<!-- NOTEBOOK -->
 
-          <div class="chart">
-            <i></i><i></i><i></i>
-            <i></i><i></i><i></i>
-          </div>
-        </div>
+<div class="tech-visual">
 
-        <div class="dash-box">
-          <small>Automação</small>
-          <div class="metric">+82%</div>
-        </div>
+<div class="glow"></div>
 
-        <div class="dash-box">
-          <small>Integrações ativas</small>
-          <div class="metric">API</div>
-        </div>
+<div class="laptop">
 
-        <div class="dash-box">
-          <small>Gestão inteligente</small>
-          <div class="metric">24/7</div>
-        </div>
+<div class="screen">
 
-      </div>
+<div class="screen-top">
+<strong>INSPIRE HUB • SISTEMA</strong>
+<span>● ● ●</span>
+</div>
 
-    </div>
+<div class="screen-layout">
 
-  </div>
+<div class="side-menu">
+
+<b>INSPIRE</b>
+
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+</div>
+
+<div class="dashboard">
+
+<div class="dashboard-card">
+<small>Performance</small>
+
+<div class="graph">
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+</div>
+
+</div>
+
+<div class="dashboard-card">
+<small>Indicadores</small>
+<div class="circle-chart"></div>
+</div>
+
+<div class="dashboard-card">
+<small>Gestão</small>
+
+<div class="graph">
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+</div>
+
+</div>
+
+<div class="dashboard-card">
+<small>Automação</small>
+
+<div class="data-bars">
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="keyboard"></div>
+
+</div>
+
+<div class="phone">
+
+<div class="phone-content">
+
+<div class="phone-logo">IH</div>
+
+<strong>INSPIRE</strong>
+<span>HUB SOLTECH</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
+
+<!-- SOLUÇÕES -->
 
 <section class="solutions" id="solucoes">
 
-  <div class="container">
+<div class="section-heading">
 
-    <div class="section-head">
-      <span>Nossas soluções</span>
-      <h2>Tecnologia aplicada aos desafios reais da empresa</h2>
-      <p>
-        Desenvolvemos soluções para integrar pessoas, processos,
-        informações e tecnologia.
-      </p>
-    </div>
+<h2>
+<span class="heading-line"></span>
+Nossas Soluções
+<span class="heading-line"></span>
+</h2>
 
-    <div class="cards">
+<p>
+Tecnologia aplicada aos desafios reais de cada negócio.
+</p>
 
-      <div class="card">
-        <div class="icon">&lt;/&gt;</div>
-        <h3>Desenvolvimento de Sistemas</h3>
-        <p>
-          Softwares desenvolvidos sob medida para as necessidades
-          e regras específicas de cada operação.
-        </p>
-      </div>
+</div>
 
-      <div class="card">
-        <div class="icon">⚙</div>
-        <h3>Automação de Processos</h3>
-        <p>
-          Redução de tarefas manuais e repetitivas com processos
-          digitais mais rápidos e organizados.
-        </p>
-      </div>
+<div class="solution-grid">
 
-      <div class="card">
-        <div class="icon">API</div>
-        <h3>Integração de APIs</h3>
-        <p>
-          Conectamos sistemas, serviços e plataformas para criar
-          operações integradas e automatizadas.
-        </p>
-      </div>
+<div class="solution-card">
 
-      <div class="card">
-        <div class="icon">WEB</div>
-        <h3>Sites e Soluções Web</h3>
-        <p>
-          Sites institucionais, portais e aplicações modernas,
-          responsivas e preparadas para crescer.
-        </p>
-      </div>
+<div class="solution-icon">
+&lt;/&gt;
+</div>
 
-      <div class="card">
-        <div class="icon">↑</div>
-        <h3>Gestão e Controle</h3>
-        <p>
-          Ferramentas para organizar informações, indicadores,
-          processos financeiros e tomada de decisão.
-        </p>
-      </div>
+<h3>
+Desenvolvimento<br>
+de Sistemas
+</h3>
 
-      <div class="card">
-        <div class="icon">↻</div>
-        <h3>Suporte e Evolução</h3>
-        <p>
-          Acompanhamento contínuo para aperfeiçoar soluções,
-          implantar melhorias e ampliar recursos.
-        </p>
-      </div>
+<p>
+Soluções sob medida para sua operação,
+do planejamento à entrega.
+</p>
 
-    </div>
+</div>
 
-  </div>
+<div class="solution-card">
+
+<div class="solution-icon">⚙</div>
+
+<h3>
+Automação<br>
+de Processos
+</h3>
+
+<p>
+Menos tarefas manuais,
+mais eficiência e produtividade.
+</p>
+
+</div>
+
+<div class="solution-card">
+
+<div class="solution-icon">API</div>
+
+<h3>
+Integração de APIs
+</h3>
+
+<p>
+Conectamos sistemas e plataformas
+para tudo funcionar junto.
+</p>
+
+</div>
+
+<div class="solution-card">
+
+<div class="solution-icon">◎</div>
+
+<h3>
+Sites e Soluções Web
+</h3>
+
+<p>
+Sites institucionais, portais
+e aplicações modernas e responsivas.
+</p>
+
+</div>
+
+<div class="solution-card">
+
+<div class="solution-icon">↗</div>
+
+<h3>
+Gestão e Controle
+</h3>
+
+<p>
+Ferramentas para organizar dados,
+indicadores e tomada de decisão.
+</p>
+
+</div>
+
+<div class="solution-card">
+
+<div class="solution-icon">↻</div>
+
+<h3>
+Suporte e Evolução
+</h3>
+
+<p>
+Acompanhamento contínuo e melhorias
+para seu sistema sempre evoluir.
+</p>
+
+</div>
+
+</div>
+
 </section>
 
-<section class="about" id="empresa">
+<!-- EMPRESA -->
 
-  <div class="container about-grid">
+<section class="company-area" id="empresa">
 
-    <div class="about-visual">
+<div class="company-grid">
 
-      <div class="about-logo">
-        <img
-          src="logo-inspire.png.png"
-          alt="Inspire Hub Soltech">
-      </div>
+<div class="company-image">
 
-    </div>
+<img
+src="logo-inspire.png.png"
+alt="Inspire Hub Soltech">
 
-    <div class="about-content">
+</div>
 
-      <div class="eyebrow">SOBRE A INSPIRE</div>
+<div class="about-card">
 
-      <h2>
-        Tecnologia que entende a realidade da sua empresa.
-      </h2>
+<div class="mini-title">
+Sobre a Inspire
+</div>
 
-      <p>
-        A Inspire Hub Soltech desenvolve soluções tecnológicas voltadas
-        à organização, eficiência e evolução da gestão empresarial.
-      </p>
+<h2>
+Tecnologia que entende<br>
+a sua realidade.
+</h2>
 
-      <p>
-        Trabalhamos a partir da realidade de cada negócio,
-        identificando processos que podem ser simplificados,
-        integrados ou automatizados.
-      </p>
+<p>
+A Inspire Hub Soltech nasceu com o objetivo de desenvolver
+soluções tecnológicas que realmente fazem a diferença,
+unindo inovação, eficiência e simplicidade.
+</p>
 
-      <p>
-        Nosso objetivo é transformar necessidades reais em
-        ferramentas práticas que gerem controle, informação
-        e resultados.
-      </p>
+<p>
+Trabalhamos lado a lado com nossos clientes para transformar
+ideias em sistemas que geram organização, controle e crescimento.
+</p>
 
-      <div class="values">
+<div class="values">
 
-        <div class="value">
-          <strong>Inovação</strong>
-          Soluções modernas.
-        </div>
+<div class="value">
 
-        <div class="value">
-          <strong>Parceria</strong>
-          Desenvolvimento próximo.
-        </div>
+<div class="value-icon">✦</div>
 
-        <div class="value">
-          <strong>Resultado</strong>
-          Tecnologia com propósito.
-        </div>
+<b>
+Inovação<br>
+Constante
+</b>
 
-      </div>
+</div>
 
-    </div>
+<div class="value">
 
-  </div>
+<div class="value-icon">◎</div>
+
+<b>
+Parceria<br>
+Real
+</b>
+
+</div>
+
+<div class="value">
+
+<div class="value-icon">▥</div>
+
+<b>
+Foco em<br>
+Resultados
+</b>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- COMO TRABALHAMOS -->
+
+<div class="process-card" id="processo">
+
+<h2>
+Como trabalhamos
+</h2>
+
+<p class="process-sub">
+Do planejamento ao resultado.
+</p>
+
+<div class="process-step">
+
+<div class="process-number">
+01
+</div>
+
+<div>
+
+<b>
+Entender
+</b>
+
+<span>
+Conhecemos seu processo e seus desafios.
+</span>
+
+</div>
+
+</div>
+
+<div class="process-step">
+
+<div class="process-number">
+02
+</div>
+
+<div>
+
+<b>
+Planejar
+</b>
+
+<span>
+Definimos a solução ideal e os recursos.
+</span>
+
+</div>
+
+</div>
+
+<div class="process-step">
+
+<div class="process-number">
+03
+</div>
+
+<div>
+
+<b>
+Desenvolver
+</b>
+
+<span>
+Colocamos a tecnologia em prática.
+</span>
+
+</div>
+
+</div>
+
+<div class="process-step">
+
+<div class="process-number">
+04
+</div>
+
+<div>
+
+<b>
+Evoluir
+</b>
+
+<span>
+Acompanhamos e entregamos melhorias contínuas.
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<section class="process" id="processo">
-
-  <div class="container">
-
-    <div class="section-head">
-      <span>Como trabalhamos</span>
-      <h2>Do planejamento ao resultado</h2>
-      <p>
-        Cada solução começa entendendo o problema antes
-        de escolher a tecnologia.
-      </p>
-    </div>
-
-    <div class="steps">
-
-      <div class="step">
-        <div class="step-num">01</div>
-        <h3>Entender</h3>
-        <p>
-          Conhecemos o processo, a operação e os desafios
-          da empresa.
-        </p>
-      </div>
-
-      <div class="step">
-        <div class="step-num">02</div>
-        <h3>Planejar</h3>
-        <p>
-          Definimos a solução, a estrutura e os recursos
-          necessários.
-        </p>
-      </div>
-
-      <div class="step">
-        <div class="step-num">03</div>
-        <h3>Desenvolver</h3>
-        <p>
-          Transformamos o planejamento em uma solução
-          tecnológica funcional.
-        </p>
-      </div>
-
-      <div class="step">
-        <div class="step-num">04</div>
-        <h3>Evoluir</h3>
-        <p>
-          Acompanhamos o uso e desenvolvemos melhorias
-          contínuas.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-</section>
+<!-- CTA -->
 
 <section class="cta" id="contato">
 
-  <div class="cta-box">
+<div class="cta-box">
 
-    <div>
-      <h2>Vamos transformar sua ideia em uma solução?</h2>
-      <p>
-        Conte para a Inspire o que sua empresa precisa.
-      </p>
-    </div>
+<div>
 
-    <a class="btn btn-whatsapp"
-       href="https://wa.me/5585986300535"
-       target="_blank"
-       rel="noopener">
-       Falar no WhatsApp
-    </a>
+<h2>
+Vamos transformar sua ideia em um sistema?
+</h2>
 
-  </div>
+<p>
+Fale com a Inspire e descubra como a tecnologia pode
+levar sua empresa a outro nível.
+</p>
+
+</div>
+
+<a
+href="https://wa.me/5585986300535"
+target="_blank"
+rel="noopener"
+class="cta-button">
+
+☎ &nbsp;
+Falar no WhatsApp
+&nbsp; →
+
+</a>
+
+</div>
 
 </section>
 
 </main>
 
+<!-- FOOTER -->
+
 <footer>
 
-  <div class="footer-grid">
+<div class="footer-grid">
 
-    <div>
+<div class="footer-logo">
 
-      <div class="footer-brand">
-        <img
-          src="logo-inspire.png.png"
-          alt="Inspire Hub Soltech">
-      </div>
+<img
+src="logo-inspire.png.png"
+alt="Inspire Hub Soltech">
 
-      <p>
-        Soluções tecnológicas para modernizar processos,
-        integrar operações e transformar a gestão empresarial.
-      </p>
+</div>
 
-    </div>
+<div>
 
-    <div>
-      <h3>Navegação</h3>
-      <a href="#inicio">Início</a>
-      <a href="#solucoes">Soluções</a>
-      <a href="#empresa">Empresa</a>
-      <a href="#processo">Como trabalhamos</a>
-    </div>
+<h4>
+Navegação
+</h4>
 
-    <div>
+<a href="#inicio">
+Início
+</a>
 
-      <h3>Contato</h3>
+<a href="#solucoes">
+Soluções
+</a>
 
-      <p>Fortaleza • Ceará • Brasil</p>
+<a href="#empresa">
+Empresa
+</a>
 
-      <a href="https://wa.me/5585986300535"
-         target="_blank"
-         rel="noopener">
-         WhatsApp: (85) 98630-0535
-      </a>
+<a href="#processo">
+Como Trabalhamos
+</a>
 
-      <a href="mailto:inspiresolucoesemgestao@gmail.com">
-         inspiresolucoesemgestao@gmail.com
-      </a>
+</div>
 
-      <a href="https://inspirehubsoltech.com.br">
-         inspirehubsoltech.com.br
-      </a>
+<div>
 
-    </div>
+<h4>
+Contato
+</h4>
 
-  </div>
+<a
+href="https://wa.me/5585986300535"
+target="_blank">
+☎ (85) 98630-0535
+</a>
 
-  <div class="copy">
-    © 2026 Inspire Hub Soltech. Todos os direitos reservados.
-  </div>
+<p>
+⌖ Fortaleza — Ceará
+</p>
+
+<a
+href="https://inspirehubsoltech.com.br">
+▣ inspirehubsoltech.com.br
+</a>
+
+</div>
+
+<div>
+
+<h4>
+Conecte-se
+</h4>
+
+<div class="social">
+
+<span>in</span>
+<span>GH</span>
+<span>◎</span>
+<span>WA</span>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="copy">
+
+© 2026 Inspire Hub Soltech.
+Todos os direitos reservados.
+
+</div>
 
 </footer>
 
